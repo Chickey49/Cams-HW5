@@ -1,0 +1,41 @@
+body {
+    font-family: serif;
+}
+
+.inputDiv {
+padding-top: 80px;
+}
+
+header {
+    line-height: 125px;
+    text-align: center;
+    font-size: 75px;
+    font-weight: 900;
+    height: 200px;
+}
+
+.line {
+height: 10px;
+background-color: black;
+}
+
+.input-group {
+    /*  */
+    width:50px;
+    border-top: slategray;
+    border-top-width: 2px;
+    border-top-style: solid;
+
+}
+.input-group-text {
+    width: 500px;
+    height: 50px;
+}
+.container {
+    position: relative;
+}
+.saveBtn {
+    font-family: serif;
+    font-size: 20px;
+    vertical-align: auto;
+}
