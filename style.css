@@ -7,11 +7,9 @@ padding-top: 80px;
 }
 
 header {
-    line-height: 125px;
     text-align: center;
     font-size: 75px;
     font-weight: 900;
-    height: 200px;
 }
 
 .line {
@@ -32,10 +30,17 @@ background-color: black;
     height: 50px;
 }
 .container {
+    margin: 0 auto;
+    max-width: 600px;
     position: relative;
 }
 .saveBtn {
     font-family: serif;
     font-size: 20px;
     vertical-align: auto;
+}
+#currentDay {
+    font-size: 40px;
+    font-weight: 100;
+    color: brown;
 }

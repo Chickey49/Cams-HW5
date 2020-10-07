@@ -1,17 +1,5 @@
 $(document).ready(function () {
     console.log("ready!");
-
-    /*
-    1 - be able to create hourslots and show fake appts in them.
-    2 - edit an hourslot
-    3 ` add an hourlsot.
-    */
-    // var testArray = new Array();
-    // testArray.push({ hour: 800, title: "800 title" });
-    // testArray.push({ hour: 1100, title: "1100 title" });
-    // testArray.push({ hour: 1200, title: "1200 title" });
-    // saveAppointments(testArray);
-
     init();
 });
 function init() {
@@ -70,7 +58,19 @@ function init() {
 
         container.append(slotParentDiv);
 
-    });
+        // color corresponding to hour
+        // if greater than current hour set color to pink
+        var dt = new Date();
+        var time = dt.getHours() * 100;
+        if (time < element) {
+            Input.css("background-color", "#55AC42");
+        } if (element === time) {
+            Input.css("background-color", "#fff");
+        } if (time > element) {
+            Input.css("background-color", "#ffcc00");
+
+        }
+    })
 
 };
 
@@ -85,21 +85,23 @@ function getAppointments() {
     // read from local storage
     // default to empty array if needed.
     // return array
-    var appts = JSON.parse(localStorage.getItem("appts")); // get list of all scores from storage.
+    var dateVariable = new Date().toDateString();
+    var appts = JSON.parse(localStorage.getItem("appts" + dateVariable)); // get list of all scores from storage.
     if (!appts) {
         appts = new Array();
     }
     return appts;
 }
 
-// save teh appt array to storage.
+// save the appt array to storage.
 function saveAppointments(appts) {
     // save new array to local storage.
     // return nothing.
-    var d = new Date();
-    console.log(d.toDateString());
-    localStorage.setItem("appts", JSON.stringify(appts));
+    var dateVariable = new Date().toDateString();
+    localStorage.setItem("appts" + dateVariable, JSON.stringify(appts));
 }
+
+
 
 /**
  * 
@@ -138,7 +140,7 @@ function saveButtonClicked(eventSource) {
         }
         else {
 
-                // loop through the appt list and check for a duplicate, if so, replace it.
+            // loop through the appt list and check for a duplicate, if so, replace it.
             for (let i = 0; i < apptList.length; i++) {
                 // if the current appts hour == current hour, remove it. 
                 if (apptList[i].hour === currentHour) {
